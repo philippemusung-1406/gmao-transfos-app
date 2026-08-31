@@ -7,14 +7,19 @@ from datetime import timedelta
 
 import numpy as np
 import pandas as pd
-import plotly.express as px
-import plotly.graph_objects as go
-import streamlit as st
-from scipy.stats import chi2_contingency
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, confusion_matrix
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
+import plotly.express as px  # type: ignore[import-not-found]
+import plotly.graph_objects as go  # type: ignore[import-not-found]
+import streamlit as st  # type: ignore[import-not-found]
+
+try:
+    from scipy.stats import chi2_contingency  # type: ignore[import-not-found]
+except ImportError:  # pragma: no cover - optional dependency for stats tab
+    chi2_contingency = None
+
+from sklearn.ensemble import RandomForestClassifier  # type: ignore[import-not-found]
+from sklearn.metrics import accuracy_score, confusion_matrix  # type: ignore[import-not-found]
+from sklearn.model_selection import train_test_split  # type: ignore[import-not-found]
+from sklearn.preprocessing import StandardScaler  # type: ignore[import-not-found]
 
 # ---------------------------------------------------------------------
 # Configuration générale de la page
